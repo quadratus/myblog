@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const path = require('path');
 
 module.exports = {
   module: {
@@ -30,7 +31,11 @@ module.exports = {
       filename: "./index.html"
     })
   ],
+  devtool: "inline-source-map",
   devServer:{
-      port: 1234
+      contentBase: path.join(__dirname, "public/json"),
+      port: 1234,
+      stats: 'minimal',
+      historyApiFallback:true
   }
 };
